@@ -3,22 +3,16 @@
 
 typedef struct Monik {
     char firm[MAX_LEN];
-    int Gc;
+    int Gz;
     int coast;
     int colot_depth;
 } Monik;
-int check_correct(Mouse); // определение правильности  данных(цены и количество кнопок).
 
-int Init(Monik*, char*, int, int, int); // создает экземпл€р структуры 
 
-int Init_copy(Monik*, Monik*); //функцию провер€юща€ корректность значений полей структуры.
+Monik initMonik(Monik* Monik, char*, int, int, int); // создает экземпл€р структуры 
+
 
 void Print(const Monik*); // инициализаци€. 
-
-int replace_coast(Monik*, int); // проверка правильности замены. 
-
-
-void ClearMouse(Monik*); // очистка пам€ти.
 
 // ‘ункци€, провер€ющу€ на равенство два экземпл€ра структуры(аналог операции Ђ == ї)
 //1 - экзепл€ры равны, иначе - 0
