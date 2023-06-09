@@ -12,7 +12,8 @@ typedef struct List {
 //void add_node(Monik** head);
 //Функция, для добавления элемента в начало списка
 List* push(Monik, List*);
-void addObject(struct Monik** lst, int* size);
+
+Monik* createwMonik();
 //Функция, для удаления элемента в начале списка
 List* pop(List*);
 
@@ -31,8 +32,10 @@ List* Delete_Item(List*, int);
 int getListLength(List* head);
 
 Monik* get_list_node_value(List* head, int index);
+
 List* InsertSortMonik(Monik* newValue, List* head);
 //записывает фаил
+
 int writelisttofile(char* filename, List* head);
 //считывает фаил
 List* loadlistfromfile(char* filename);

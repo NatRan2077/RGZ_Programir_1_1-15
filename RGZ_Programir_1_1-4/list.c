@@ -1,23 +1,28 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "list.h"
+#include <malloc.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Monitor.h"
 
 
 
-void addObject(struct Monik** lst, int* size) {
-	*lst = (struct Monik*)realloc(*lst, (*size + 1) * sizeof(struct Monik));
-	struct Monik* obj = (*lst) + *size;
-	printf("Enter object name: ");
-	scanf("%s", obj->firm);
-	printf("Enter object value: ");
-	scanf("%d", &obj->Gz);
-	printf("Enter object price: ");
-	scanf("%d", &obj->coast);
-	printf("Enter object price: ");
-	scanf("%d", &obj->colot_depth);
-	(*size)++;
-	printf("Object added!\n");
+Monik* createwMonik() {
+	Monik* w = NULL;
+	char firm = 0;
+	int Gz = 0, coast = 0;
+	int colot_depth;
+	puts("Введите Фирма");
+	scanf("%s", &firm); // 
+	puts("Введите количество  герц");
+	scanf("%d", &Gz);
+	puts("Введите цену");
+	scanf("%d", &coast);
+	puts("Введите глубину цвета от 8 до 21");
+	scanf("%d", &colot_depth);
+	system("cls");
+	initMonik(w, firm,  Gz,  coast,  colot_depth);
+	return w;
 }
 List* InsertSortMonik(Monik* newValue, List* head) {
 	List* item = malloc(sizeof(List));
@@ -84,6 +89,7 @@ List* pop(List* head)
 	}
 	return head;
 }
+
 //Функцию для удаления заданного элемента из списка.
 List* Delete_Item(List* head, int id)
 {

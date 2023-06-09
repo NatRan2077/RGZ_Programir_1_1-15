@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <fcntl.h>
 #include <io.h>
+#include <windows.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include "Monitor.h"
@@ -40,72 +42,55 @@ int main() {
 //
 //
 //	Print(get_list_node_value(head, 1));
-	List* head = loadlistfromfile("MonikF.bin");
-
-	struct Monik* objList = NULL;
-	//writelisttofile("MonikF.bin", head);
-	int size = 0;
-	int choice = 0;
-	int h = 0;
-	int close = 0;
-	scanf("%d", &choice);
-	while (1)
-	{
-		system("cls");
-
-		int choice = 0;
-
-		puts("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
+	List* head = loadlistfromfile("WiFirouter");
+	int n = 0, close = 0,
+		delnum = 0, printnum = 0;
+	do {
 		printf("В списке %d элементов.\n", getListLength(head));
-		puts("1. Добавить элемент");
-		puts("2. Вывести сведения об объектах");
-		puts("3. Удалить элемент по номеру");
-		puts("4. Завершить работу");
-		puts("5.обновить значение в списке ");
+		printf("\tВыберите действие:\n");
+		printf("1 - добавить элемент\n");
+		printf("2 - удалить элемент\n");
+		printf("3 - вывести элемент\n");
+		printf("4 - напечатать список\n");
+		printf("0 - выйти\n");
+		printf("Вводите: ");
+		scanf("%d", &n);
 
-		puts("-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-");
 
-		printf("Код команды: ");
-		scanf_s("%d", &choice);
-
-		system("cls");
-
-		switch (choice)
-		{
-		case 1:
-			addObject(&objList, &size);
-			break;
-		case 2:
-			PrintList(head);
-			break;
-		case 3:
-			scanf("%d", h);
-			Delete_Item(head, &h);
-
-			system("pause");
-			break;
-		case 4:
-			deleteList(head);
-			system("pause");
-			break;
-
-		case 5:
-			getListLength(head);
-			puts(getListLength(head));
-			break;
-		default:
-			puts("\nНекорректное значение! Повтор запроса...\n");
-			break;
+		if (n == 1) {
+			system("cls");
+			
+			Monik* m = createwMonik();
+			head = InsertSortMonik(m, head);
 		}
-	}while(!close)
+		if (n == 2) {
+			puts("Введите номер элемента для удаленя");
+			scanf("%d", &delnum);
+			system("cls");
+			head = Delete_Item(head, delnum);
+		}
+		if (n == 3) {
+			puts("Введите номер элемента для вывода");
+			scanf("%d", &printnum);
+			system("cls");
+			get_list_node_value(head,printnum);// я даун
+		}
+		if (n == 4) {
+			system("cls");
+			puts("------Список------");
+			PrintList(head);
+		}
+		if (n == 0) {
+			close = 1;
+		}
 
-	writelisttofile("MonikF.bin", head);
+	} while (!close);
+
+	writelisttofile("WiFirouter", head);
 
 	for (int i = getListLength(head); i > 0; i--) {
-		head = Delete_Item(1, head);
+		head = Delete_Item(head, 1);
 	}
 	return 0;
 
-
-
-}
+};
