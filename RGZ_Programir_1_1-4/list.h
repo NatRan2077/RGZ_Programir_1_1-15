@@ -31,3 +31,8 @@ List* Delete_Item(List*, int);
 int getListLength(List* head);
 
 Monik* get_list_node_value(List* head, int index);
+List* InsertSortMonik(Monik* newValue, List* head);
+//записывает фаил
+int writelisttofile(char* filename, List* head);
+//считывает фаил
+List* loadlistfromfile(char* filename);

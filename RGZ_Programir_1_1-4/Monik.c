@@ -2,7 +2,7 @@
 #include "Monitor.h"
 #define MAX_SIZE 20
 
-Monik initMonik(Monik* Monik, char* firm, int Gz, int coast, int colot_depth) {
+void initMonik(Monik* Monik, char* firm, int Gz, int coast, int colot_depth) {
 	if (Monik == NULL) {
 		printf("Error: null pointer\n");
 		return;

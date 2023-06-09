@@ -19,8 +19,38 @@ void addObject(struct Monik** lst, int* size) {
 	(*size)++;
 	printf("Object added!\n");
 }
-
-
+List* InsertSortMonik(Monik* newValue, List* head) {
+	List* item = malloc(sizeof(List));
+	item->m = newValue;
+	item->next = NULL;
+	List* tmp = head;
+	if (head == NULL) return item;
+	if (newValue->coast < head->m->coast) {
+		item->next = head;
+		return item;
+	}
+	while (tmp->next != NULL) {
+		if (newValue->coast < tmp->next->m->coast) {
+			item->next = tmp->next;
+			tmp->next = item;
+			break;
+		}
+		else tmp = tmp->next;
+	}
+	tmp->next = item;
+	return head;
+}
+//Функция, для удаления списка
+List* deleteList(List* head)
+{
+	List* p;
+	while (head != NULL) {
+		p = head;
+		head = head->next;
+		free(p);
+	}
+	return NULL;
+}
 
 
 

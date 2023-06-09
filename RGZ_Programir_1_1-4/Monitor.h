@@ -9,7 +9,7 @@ typedef struct Monik {
 } Monik;
 
 
-Monik initMonik(Monik* Monik, char*, int, int, int); // создает экземпляр структуры 
+void initMonik(Monik* Monik, char*, int, int, int); // создает экземпляр структуры 
 
 
 void Print(const Monik*); // инициализация. 

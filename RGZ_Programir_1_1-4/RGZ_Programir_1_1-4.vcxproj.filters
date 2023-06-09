@@ -24,12 +24,18 @@
     <ClCompile Include="list.c">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="OutText.c">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Monitor.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="list.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="OutTEext.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
