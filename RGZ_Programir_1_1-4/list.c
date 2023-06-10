@@ -8,21 +8,22 @@
 
 
 Monik* createwMonik() {
-	Monik* w = NULL;
-	char firm = 0;
+	
+	Monik* m = NULL;
 	int Gz = 0, coast = 0;
+	char firm[MAX_SIZE];
 	int colot_depth;
-	puts("Введите Фирма");
-	scanf("%s", &firm); // 
 	puts("Введите количество  герц");
 	scanf("%d", &Gz);
 	puts("Введите цену");
 	scanf("%d", &coast);
 	puts("Введите глубину цвета от 8 до 21");
 	scanf("%d", &colot_depth);
+	puts("Введите Фирма");
+	scanf("%s", firm);
 	system("cls");
-	initMonik(w, firm,  Gz,  coast,  colot_depth);
-	return w;
+	m = initMionik(m, Gz,  coast,  colot_depth, firm);
+	return m;
 }
 List* InsertSortMonik(Monik* newValue, List* head) {
 	List* item = malloc(sizeof(List));

@@ -1,21 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <malloc.h>
+#include "list.h" 
+#include <string.h>
 #include "Monitor.h"
-#define MAX_SIZE 20
+#define MAX_SIZE 19
 
-void initMonik(Monik* Monik, char* firm, int Gz, int coast, int colot_depth) {
-	if (Monik == NULL) {
-		printf("Error: null pointer\n");
-		return;
-	}
-	if (firm != NULL) {
-		strcpy(Monik->firm, firm);
-	}
-	else {
-		strcpy(Monik->firm, "Unknown");
-	}
-	Monik->Gz = (Gz > 0 && Gz < 500) ? Gz : 60;
-	Monik->coast = (coast > 0 && coast < 1000000) ? coast : 17000;
-	Monik->colot_depth = (colot_depth > 0 && colot_depth < 20) ? colot_depth : 10;
+Monik* initMionik(Monik* m, int Gz, int coast, int colot_depth, char* firm) {
+	m = createsStrMonik(Gz, coast, colot_depth, firm);
+	return m;
+
+}
+
+Monik* createsStrMonik(int Gz, int coast, int colot_depth, char* firm) {
+	Monik* newMonik = malloc(sizeof(Monik));
+	if (Gz > 0) Gz = 60;
+	if (coast < 0)coast = 1000;
+	if (colot_depth < 0 & colot_depth >50) colot_depth = 10;
+	if (firm == NULL) strncpy(newMonik->firm, "ÔÈÐÌÀ íå óêàçàíà", MAX_SIZE);
+
+	newMonik->Gz = Gz;
+	newMonik->coast = coast;
+	newMonik->colot_depth = colot_depth;
+	strncpy(newMonik->firm, firm, MAX_SIZE);
+
+	return newMonik;
 }
 
 

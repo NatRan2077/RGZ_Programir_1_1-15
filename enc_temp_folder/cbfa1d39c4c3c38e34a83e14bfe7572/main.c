@@ -12,6 +12,38 @@
 
 int main() {
 	setlocale(LC_ALL, "Rus");
+//	Monik m1;
+//
+//
+//	initMonik(&m1, "Samsung", 60, 3500, 10);
+//	initMonik(&m2, "Acer", 120, 70000, 5);
+//	initMonik(&m3, "Logitech", 244, 10000, 15);
+//
+//
+///*	Print(&m1);
+//	Print(&m2);
+//	Print(&m3);
+//
+//
+//	Equals(&m1, &m2);
+//	Less(&m2, &m3);
+//	*/
+//	//Cоздаем список объектов
+//	List* head = NULL;
+//	head = push(m1, head);
+//	head = push(m2, head);
+//	head = push(m3, head);
+//	PrintList(head);
+//	printf("%d\n", getListLength(head));
+//
+//	Delete_Item(head, 2);
+//
+//	PrintList(head);
+//
+//
+//	Print(get_list_node_value(head, 1));
+
+
 	//====================== Часть два Б =========================
 	List* head = loadlistfromfile("MonikF");
 	int n = 0, close = 0,delnum = 0, printnum = 0;

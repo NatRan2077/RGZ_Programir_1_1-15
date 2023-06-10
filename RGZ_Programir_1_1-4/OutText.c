@@ -23,7 +23,7 @@ int writelisttofile(char* filename, List* head) {
     }
     while (head != NULL) {
         if (_write(file, head->m, sizeof(List)) == -1) {
-            perror("Запись в файл структуры TV с каким-то индексом");
+            perror("Запись в файл структуры monik с каким-то индексом");
             return 0;
         }
 
@@ -52,8 +52,7 @@ List* loadlistfromfile(char* filename) {
             perror("Чтение количества структур");
             return NULL;
         }
-        initMonik(&temp, temp.firm, temp.Gz, temp.coast, temp.colot_depth);
-        head = InsertSortMonik(&temp, head);
+        head = InsertSortMonik(createwMonik(temp.Gz, temp.coast, temp.colot_depth, temp.firm), head);
         amount--;
     }
     return head;

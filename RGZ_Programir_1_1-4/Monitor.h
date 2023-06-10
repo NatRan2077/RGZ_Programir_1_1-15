@@ -1,17 +1,17 @@
 #pragma once
-#define MAX_LEN 20
+#define MAX_SIZE 20
 
 typedef struct Monik {
-    char firm[MAX_LEN];
     int Gz;
     int coast;
     int colot_depth;
+    char firm[MAX_SIZE];
 } Monik;
 
 
-void initMonik(Monik* Monik, char*, int, int, int); // создает экземпл€р структуры 
+Monik* initMionik(Monik* m, int , int , int , char* ); // создает экземпл€р структуры 
 
-
+Monik* createsStrMonik(int , int , int , char* );
 void Print(const Monik*); // инициализаци€. 
 
 // ‘ункци€, провер€ющу€ на равенство два экземпл€ра структуры(аналог операции Ђ == ї)
